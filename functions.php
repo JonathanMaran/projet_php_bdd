@@ -79,6 +79,21 @@ WHERE articles.id = ' . $articleid);
 return $query;
 }
 
+function categoryArticle(PDO $bdd, $nomcategory)
+{
+    $query = $bdd->query('SELECT articles.*, categories.category_article, authors.first_name, authors.last_name, authors.nickname
+FROM articles
+INNER JOIN authors ON author_id = authors.id
+INNER JOIN articles_has_categories ON articles.id = articles_has_categories.article_id
+INNER JOIN categories ON articles_has_categories.category_id = categories.id
+WHERE categories.category_article = "' . $nomcategory .  '"');
+
+    $reponse = $query->fetchAll();
+
+    return $reponse;
+
+}
+
 
 
 
@@ -87,7 +102,4 @@ function debug($var)
 {
     highlight_string("<?php\n" . var_export($var, true) . ";\n?>");
 }
-/*'publication_date' => $publication_date,
-        'end_of_publication' => $end_of_publication_date,
-        'degree_of_importance' => $degree_of_importance,
-        'author_id' => $author_id*/
+

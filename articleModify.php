@@ -15,6 +15,8 @@ $degree_of_importance = null;
 
 $articleid = $_GET['id'];
 
+
+// effectue la modification
 if (!empty($_POST)) {
     if (!empty($_POST['title'])) {
         $title = $_POST['title'];
@@ -26,6 +28,7 @@ if (!empty($_POST)) {
         $author = $_POST['author'];
     }
     $articlemodify = articleModify($bdd, $title, $article, $author, $degree_of_importance, $articleid);
+    header('Location: http://localhost/tests/projet_php_bdd/index.php');
 }
 
 

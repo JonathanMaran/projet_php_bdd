@@ -28,7 +28,7 @@ if (!empty($_POST)) {
         <input class="form-check-input" type="radio" name="supprimer" id="inlineRadio2" value="Non">
         <label class="form-check-label" for="inlineRadio2">Non</label>
     </div>
-    <br>
+    <br>;
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
